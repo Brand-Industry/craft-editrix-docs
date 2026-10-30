@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://editrix.thebrandindustry.com/sitemap.xml

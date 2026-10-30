@@ -12,6 +12,32 @@ const editUrl = process.env.DOCS_EDIT_URL
 // Craft 5 (Editrix 2.x) lives at the root, Craft 4 (Editrix 1.x) under /craft-4/.
 // Both trees have the same pages, so the navigation is built once for each prefix.
 
+const ogImage = `${siteUrl}/brand/og-image.png`
+
+// One meta description per page, so search results do not show the same sentence 22 times.
+// The version label is added in transformPageData.
+const descriptions: Record<string, string> = {
+  index: 'Search and replace content in Craft CMS with a preview, a log of every change and a revert for each value.',
+  installation: 'Install Editrix, set permissions and update it without the project config notice.',
+  searching: 'What Editrix searches, the options, the scope, whose permissions apply and how results are shown.',
+  replacing: 'Preview, dry run, replace and skip rules: how Editrix applies a replacement and what it refuses.',
+  'logs-and-revert': 'How Editrix logs every replace and reverts it value by value.',
+  configuration: 'Every Editrix setting, in the control panel and in config/editrix.php.',
+  'large-sites': 'Set up the queue, understand the limits and keep Editrix searches fast on large sites.',
+  'command-line': 'Search, replace and revert from the terminal with the Editrix console commands (Pro).',
+  editions: 'What Standard and Pro include in Editrix, with the exact limits and prices.',
+  troubleshooting: 'Messages you may see in Editrix and what they mean.',
+  changelog: 'Release notes for Editrix.'
+}
+
+function pageInfo(relativePath: string) {
+  const v4 = relativePath.startsWith('craft-4/')
+  const slug = relativePath.replace(/^craft-4\//, '').replace(/\.md$/, '')
+  // index.md is served at the folder URL: "/" and "/craft-4/". Every other page has no trailing slash.
+  const path = '/' + relativePath.replace(/\.md$/, '').replace(/(^|\/)index$/, '$1')
+  return { v4, slug, path }
+}
+
 function nav(prefix: string, current: string): DefaultTheme.NavItem[] {
   const docsMatch = prefix
     ? `^${prefix}/(?!editions|changelog)`
@@ -76,15 +102,53 @@ export default defineConfig({
   description,
   base,
   cleanUrls: true,
-  sitemap: { hostname: siteUrl },
+  lastUpdated: true,
+
+  sitemap: {
+    hostname: siteUrl,
+    // Craft 5 and Craft 4 are versions, not languages. Without this the sitemap lists them as hreflang
+    // alternates of each other, and both are en-US, which search engines read as conflicting signals.
+    transformItems: (items) => items.map(({ links, ...item }) => item)
+  },
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }],
+    ['meta', { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' }],
+    ['meta', { name: 'theme-color', content: '#0f0e1c', media: '(prefers-color-scheme: dark)' }],
     ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:locale', content: 'en_US' }],
     ['meta', { property: 'og:site_name', content: 'Editrix Docs' }],
-    ['meta', { property: 'og:image', content: `${siteUrl}/brand/hero-banner-light.png` }],
+    ['meta', { property: 'og:image', content: ogImage }],
+    ['meta', { property: 'og:image:width', content: '1200' }],
+    ['meta', { property: 'og:image:height', content: '630' }],
+    ['meta', { property: 'og:image:alt', content: 'Editrix, advanced content search and replace for Craft CMS' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }]
   ],
+
+  transformPageData(pageData) {
+    const { v4, slug } = pageInfo(pageData.relativePath)
+    const text = descriptions[slug]
+    if (!text) return
+    const version = v4 ? 'Editrix 1.2 for Craft 4' : 'Editrix 2.0 for Craft 5'
+    pageData.description = `${text} ${version}.`
+    pageData.frontmatter.description = pageData.description
+  },
+
+  transformHead({ pageData, title, description }) {
+    // The 404 page must never be indexed.
+    if (pageData.isNotFound) return [['meta', { name: 'robots', content: 'noindex' }]]
+    const url = siteUrl + pageInfo(pageData.relativePath).path
+    return [
+      // Each page names itself as canonical. The same page also answers at /page.html on GitHub Pages.
+      ['link', { rel: 'canonical', href: url }],
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }],
+      ['meta', { property: 'og:url', content: url }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: description }],
+      ['meta', { name: 'twitter:image', content: ogImage }]
+    ]
+  },
 
   // Each version is a locale so it gets its own search index, sidebar and navigation.
   locales: {
