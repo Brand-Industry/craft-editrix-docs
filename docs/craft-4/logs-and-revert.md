@@ -2,7 +2,7 @@
 
 **Editrix, Logs & History** lists every replace and every search. A replace shows its status: success, partial or reverted. Searches appear with the type `search` and their number of matches. They changed nothing and cannot be reverted.
 
-<Shot src="/img/logs.jpg" alt="The Logs and History page. A table of replacements lists the date, user, search text, replacement text, count and status, with a Delete action on each row and Export CSV and Export JSON buttons above." caption="Replacements and Searches are separate tabs. Filter by status or by user." />
+<Shot src="/img/logs.jpg" alt="Logs and History table of replacements with status, Delete and Export buttons" caption="Replacements and Searches are separate tabs. Filter by status or by user." />
 
 ## How a replace is logged
 

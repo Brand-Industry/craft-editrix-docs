@@ -51,7 +51,7 @@ To add a screenshot to a page:
 
 1. Push this folder to a GitHub repository with `main` as the default branch.
 2. In **Settings, Pages**, set the source to **GitHub Actions** and the custom domain to `editrix.thebrandindustry.com`.
-3. Push to `main`. `.github/workflows/deploy.yml` builds and publishes the site. It also sets `DOCS_EDIT_URL`, which turns on the "Edit this page" link for this repository.
+3. Push to `main`. `.github/workflows/deploy.yml` builds and publishes the site. It also sets `DOCS_FEEDBACK_URL`, which turns on the "Report a problem with this page" link and points it at this repository's issues.
 
 The repository lives in the `Brand-Industry` organization. DNS: create a `CNAME` record for `editrix` on `thebrandindustry.com` that points to `brand-industry.github.io`. Then turn on **Enforce HTTPS** in the Pages settings once the certificate is issued.
 
@@ -66,4 +66,4 @@ Import the repository in Vercel and add `editrix.thebrandindustry.com` under **S
 | Variable | Effect |
 | --- | --- |
 | `DOCS_BASE` | Base path of the site. Defaults to `/`. Set it only to preview under a sub-path |
-| `DOCS_EDIT_URL` | Pattern for the "Edit this page" link, for example `https://github.com/<owner>/<repo>/edit/main/docs/:path`. The link is hidden when it is not set |
+| `DOCS_FEEDBACK_URL` | Pattern for the "Report a problem with this page" link, for example `https://github.com/<owner>/<repo>/issues/new?title=Docs%3A%20:path`. The link is hidden when it is not set |

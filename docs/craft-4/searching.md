@@ -2,7 +2,7 @@
 
 Open **Editrix, New Operation**. The home screen offers a text search and, in Pro, a category search and a tag search.
 
-<Shot src="/img/home.jpg" alt="The Editrix home screen in the Craft control panel: a chart of the last 14 days of searches and replaces, three cards for Text, Categories and Tags, and a list of recent activity." caption="The New Operation screen. Recent activity lists your latest operations with a Re-run link." />
+<Shot src="/img/home.jpg" alt="Editrix home screen with an activity chart, Text, Categories and Tags cards, and recent activity" caption="The New Operation screen. Recent activity lists your latest operations with a Re-run link." />
 
 ## What is searched
 
@@ -29,7 +29,7 @@ The field types that are searched are listed in the `searchableFieldTypes` setti
 
 The checkboxes for Entries, Globals, Matrix fields and Categories choose where to look. Their defaults are set in [Settings](configuration.md).
 
-<Shot src="/img/segmented-search.jpg" alt="The search form in Segmented Search mode. A Scope Filters panel on the left lists sections, entry types and fields, and the option checkboxes sit under the Find box." caption="Segmented Search (Pro) narrows a search to sections, entry types and fields before it runs." />
+<Shot src="/img/segmented-search.jpg" alt="Segmented Search with Scope Filters for sections, entry types and fields" caption="Segmented Search (Pro) narrows a search to sections, entry types and fields before it runs." />
 
 ## Whose permissions apply
 
@@ -53,7 +53,7 @@ Results show one row per field, per site. A field where the text appears four ti
 
 A row shows the entry, its section, the field, and a short context with the match highlighted. Open a row to read the full text of the field.
 
-<Shot src="/img/results.jpg" alt="The results table. Each row shows the entry title and section, the field with its type and match count, and a preview with the match highlighted." caption="One row per field. The badges show the field type and how many matches the field holds." />
+<Shot src="/img/results.jpg" alt="Results table with one row per field, its match count and a highlighted preview" caption="One row per field. The badges show the field type and how many matches the field holds." />
 
 A search stops at a limit: 3,000 rows on Standard and 25,000 on Pro. Editrix says so when it stops, and a narrower search shows the rest. You can lower the limit with the `maxSearchResults` setting but not raise it. The limit counts rows, not matches, so a field with many matches counts once.
 

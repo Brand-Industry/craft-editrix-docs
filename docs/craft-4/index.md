@@ -50,7 +50,7 @@ You can also install it from **Settings, Plugins** in the control panel. If `php
 5. Open a row to see the original and proposed text, then select the rows to change and click **Replace Selected**.
 6. Find the operation under **Logs & History**, where you can revert it.
 
-<Shot src="/img/search-replace-form.jpg" alt="The Search and Replace form with the Find and Replace with boxes, option checkboxes for regular expression, case, whole words, link addresses and preserve case, a Dry Run switch, and checkboxes for entries, globals, Matrix fields and categories." caption="Steps 2 and 3. The Find and Replace with boxes sit above the options." />
+<Shot src="/img/search-replace-form.jpg" alt="Search and Replace form with Find and Replace boxes, option checkboxes and a Dry Run switch" caption="Steps 2 and 3. The Find and Replace with boxes sit above the options." />
 
 ## Editions
 

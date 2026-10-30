@@ -12,7 +12,7 @@ return [
 ];
 ```
 
-<Shot src="/img/settings.jpg" alt="The Editrix Settings page showing the current edition, the search defaults for entries, globals, Matrix fields and categories, and the log retention field." caption="Editrix, Settings in the control panel. A value set in config/editrix.php takes precedence." />
+<Shot src="/img/settings.jpg" alt="Editrix Settings page with the edition, search defaults and log retention" caption="Editrix, Settings in the control panel. A value set in config/editrix.php takes precedence." />
 
 ## Search
 

@@ -6,8 +6,10 @@ const pluginRepo = 'https://github.com/Brand-Industry/craft-editrix'
 
 // The site is served from the root of its own domain. Set DOCS_BASE only to preview under a sub-path.
 const base = process.env.DOCS_BASE ?? '/'
-// Pattern for the "Edit this page" link, for example https://github.com/<owner>/<repo>/edit/main/docs/:path
-const editUrl = process.env.DOCS_EDIT_URL
+// Pattern for the "Report a problem" link at the end of each page. :path becomes the page's file, for example
+// https://github.com/<owner>/<repo>/issues/new?title=Docs%3A%20:path. Hidden when it is not set.
+// It opens an issue instead of an edit, because these pages are copies of the plugin's docs and are kept in sync from there.
+const feedbackUrl = process.env.DOCS_FEEDBACK_URL
 
 // Craft 5 (Editrix 2.x) lives at the root, Craft 4 (Editrix 1.x) under /craft-4/.
 // Both trees have the same pages, so the navigation is built once for each prefix.
@@ -113,6 +115,7 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: `${base}favicon.svg` }],
+    ['link', { rel: 'apple-touch-icon', href: `${base}apple-touch-icon.png` }],
     ['meta', { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' }],
     ['meta', { name: 'theme-color', content: '#0f0e1c', media: '(prefers-color-scheme: dark)' }],
     ['meta', { property: 'og:type', content: 'website' }],
@@ -137,8 +140,26 @@ export default defineConfig({
   transformHead({ pageData, title, description }) {
     // The 404 page must never be indexed.
     if (pageData.isNotFound) return [['meta', { name: 'robots', content: 'noindex' }]]
-    const url = siteUrl + pageInfo(pageData.relativePath).path
+    const { path } = pageInfo(pageData.relativePath)
+    const url = siteUrl + path
+    const publisher = { '@type': 'Organization', name: 'Brand Industry', url: 'https://thebrandindustry.com' }
+    const site = { '@type': 'WebSite', name: 'Editrix Docs', url: siteUrl }
+    const isHome = path === '/' || path === '/craft-4/'
+    const structured = isHome
+      ? { '@context': 'https://schema.org', ...site, inLanguage: 'en-US', publisher }
+      : {
+          '@context': 'https://schema.org',
+          '@type': 'TechArticle',
+          headline: pageData.title,
+          description,
+          url,
+          inLanguage: 'en-US',
+          ...(pageData.lastUpdated ? { dateModified: new Date(pageData.lastUpdated).toISOString() } : {}),
+          isPartOf: site,
+          publisher
+        }
     return [
+      ['script', { type: 'application/ld+json' }, JSON.stringify(structured)],
       // Each page names itself as canonical. The same page also answers at /page.html on GitHub Pages.
       ['link', { rel: 'canonical', href: url }],
       ['meta', { property: 'og:title', content: title }],
@@ -185,7 +206,7 @@ export default defineConfig({
 
     docFooter: { prev: 'Previous page', next: 'Next page' },
 
-    editLink: editUrl ? { pattern: editUrl, text: 'Edit this page on GitHub' } : undefined,
+    editLink: feedbackUrl ? { pattern: feedbackUrl, text: 'Report a problem with this page' } : undefined,
 
     footer: {
       message: 'Editrix is released under the Craft License. One license covers one production site.',

@@ -6,9 +6,9 @@ Choose **Search & Replace** on the search screen and enter the replacement text.
 
 Open any result row to see the original text and the proposed text, with each changed word marked. **Dry Run Mode** goes further: turn it on, choose the rows and click **Run dry run**. Editrix works out the whole replace and reports how many matches would change and which rows it would skip, and why. It saves nothing, writes no log, asks for no confirmation and leaves the rows on screen as they were. It runs inside the request and is never queued, so it covers at most 100 rows; select fewer, or narrow the search.
 
-<Shot src="/img/word-preview.jpg" alt="The Visual Diff Preview panel beside the results, showing the original HTML of a field with the matched word struck through, and Skip and Apply to this element buttons." caption="The preview opens beside the results. The word that will change is marked in the original text." />
+<Shot src="/img/word-preview.jpg" alt="Visual Diff Preview panel with the matched word struck through and Skip and Apply buttons" caption="The preview opens beside the results. The word that will change is marked in the original text." />
 
-<Shot src="/img/dry-run.jpg" alt="The search form with Dry Run Mode switched on. Above the results the message reads: Dry run, 3 matches would change, nothing was saved." caption="After a dry run the rows stay on screen, exactly as they were, and nothing is saved." />
+<Shot src="/img/dry-run.jpg" alt="Dry Run Mode switched on, with a message that 3 matches would change and nothing was saved" caption="After a dry run the rows stay on screen, exactly as they were, and nothing is saved." />
 
 ## Replace
 
@@ -17,7 +17,7 @@ Open any result row to see the original text and the proposed text, with each ch
 
 Selecting a row replaces every occurrence in that field that can be replaced. To leave some out, open the row's matches (**Show all matches**) and clear the box of each one to keep. The row then reads "2 of 3 will change", the preview shows the result without them, and the log counts only what changed. Only the first 50 matches of a row are listed, so those are the ones that can be left out.
 
-<Shot src="/img/leave-matches-out.jpg" alt="A result row opened to list its two matches. The second match is cleared and the row reads 1 of 2 will change." caption="Clear the box of a match to keep it. The row counts only what will change." />
+<Shot src="/img/leave-matches-out.jpg" alt="A result row listing two matches, with the second one cleared and the row reading 1 of 2 will change" caption="Clear the box of a match to keep it. The row counts only what will change." />
 
 In regular expression mode, the replacement can use capture groups such as `$1`. Outside regular expression mode the replacement is inserted exactly as typed, so a `$` or a backslash is never treated as a reference.
 
@@ -29,7 +29,7 @@ With **Include link addresses** on, a replace also changes the `href` and `src` 
 
 A replace of more rows than `bulkConfirmationThreshold` (default 100) asks you to type `REPLACE` before it runs. With **Production Safe Mode** on (Pro), every replace in a production environment asks the same.
 
-<Shot src="/img/confirm-replace.jpg" alt="The Confirm Replacement dialog. It says you are about to replace 2 occurrences and that the action can be reverted from the history within 30 days, with Cancel and Confirm Replace buttons." caption="The confirmation for a small replace. Above the threshold, the dialog also asks for the word REPLACE." />
+<Shot src="/img/confirm-replace.jpg" alt="Confirm Replacement dialog with Cancel and Confirm Replace buttons" caption="The confirmation for a small replace. Above the threshold, the dialog also asks for the word REPLACE." />
 
 ## Limits
 
