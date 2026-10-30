@@ -1,0 +1,86 @@
+# Source brand assets and working context. Only the copies in docs/public are published.
+_context/
+
+# Dependencies and build output
+node_modules/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+.vercel/
+.cache/
+.parcel-cache/
+.eslintcache
+*.tsbuildinfo
+coverage/
+*.tgz
+
+# Secrets and credentials. Never commit these, even for a private repository.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+id_ecdsa*
+*.ppk
+.npmrc
+.yarnrc.yml
+.netrc
+.aws/
+.ssh/
+.gnupg/
+.secrets/
+secrets.*
+*secret*.json
+*credentials*.json
+service-account*.json
+
+# Database dumps and backups
+*.sql
+*.sqlite
+*.sqlite3
+*.dump
+*.bak
+*.orig
+*.rej
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Operating system
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-*
+
+# AI assistant context, instructions and local state. The repository is public, so none of it is published.
+.claude/
+.claudeignore
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+.cursor/
+.cursorrules
+.windsurfrules
+.github/copilot-instructions.md
+.aider*
+anti-slop/

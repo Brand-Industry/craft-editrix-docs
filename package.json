@@ -1,0 +1,17 @@
+{
+  "name": "editrix-docs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Documentation site for Editrix, the Craft CMS search and replace plugin.",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/figtree": "^5.3.0",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.44"
+  }
+}

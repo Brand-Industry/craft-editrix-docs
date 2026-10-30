@@ -1,0 +1,234 @@
+/*
+ * Editrix docs theme.
+ * Palette comes from the brand assets: ink #0F0E1C, periwinkle #6B86ED, white.
+ * Periwinkle fails 4.5:1 as text on white (3.36:1), so links on light use a deeper
+ * shade of the same hue (#3A55C7, 6.36:1) and periwinkle stays a fill with ink text (5.69:1).
+ * The lavender highlight is the identity motif: it is the match marker that the plugin
+ * paints on found text, reused here for selection, <mark>, search hits and the active sidebar page.
+ */
+
+:root {
+  --vp-font-family-base: 'Figtree Variable', 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --editrix-ink: #0f0e1c;
+  --editrix-periwinkle: #6b86ed;
+  --editrix-highlight: #c9d1f7;
+
+  --vp-c-white: #ffffff;
+  --vp-c-black: #0f0e1c;
+
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f6f7fd;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #f6f7fd;
+
+  --vp-c-text-1: #0f0e1c;
+  --vp-c-text-2: #3f3f55;
+  --vp-c-text-3: #595970;
+
+  --vp-c-divider: #e3e6f5;
+  --vp-c-gutter: #e3e6f5;
+  --vp-c-border: #7f84ab;
+
+  --vp-c-default-1: #595970;
+  --vp-c-default-2: #3f3f55;
+  --vp-c-default-3: #3f3f55;
+  --vp-c-default-soft: #eef0fa;
+
+  --vp-c-brand-1: #3a55c7;
+  --vp-c-brand-2: #2b43a8;
+  --vp-c-brand-3: #6b86ed;
+  --vp-c-brand-soft: rgba(107, 134, 237, 0.14);
+
+  --vp-button-brand-bg: #6b86ed;
+  --vp-button-brand-text: #0f0e1c;
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-bg: #7c94f0;
+  --vp-button-brand-hover-text: #0f0e1c;
+  --vp-button-brand-active-bg: #5a76e2;
+  --vp-button-brand-active-text: #0f0e1c;
+
+  --vp-code-block-bg: #f6f7fd;
+  --vp-code-bg: #eef0fa;
+  --vp-code-color: #3a55c7;
+
+  --vp-local-search-highlight-bg: var(--editrix-highlight);
+  --vp-local-search-highlight-text: var(--editrix-ink);
+
+  --vp-nav-height: 64px;
+}
+
+.dark {
+  --vp-c-bg: #0f0e1c;
+  --vp-c-bg-alt: #17162a;
+  --vp-c-bg-elv: #1d1c33;
+  --vp-c-bg-soft: #17162a;
+
+  --vp-c-text-1: #ededf6;
+  --vp-c-text-2: #c4c3d6;
+  --vp-c-text-3: #a9a8bc;
+
+  --vp-c-divider: #2a2942;
+  --vp-c-gutter: #0f0e1c;
+  --vp-c-border: #6b7092;
+
+  --vp-c-default-1: #a9a8bc;
+  --vp-c-default-2: #c4c3d6;
+  --vp-c-default-3: #c4c3d6;
+  --vp-c-default-soft: #1d1c33;
+
+  --vp-c-brand-1: #8fa4f5;
+  --vp-c-brand-2: #a9b9f8;
+  --vp-c-brand-3: #6b86ed;
+  --vp-c-brand-soft: rgba(107, 134, 237, 0.2);
+
+  --vp-code-block-bg: #17162a;
+  --vp-code-bg: #1d1c33;
+  --vp-code-color: #8fa4f5;
+}
+
+/* Base layer: affordances every control needs, set once. */
+a[href],
+button,
+summary,
+select,
+label[for],
+[role='button'],
+[role='tab'],
+[role='switch'],
+input[type='checkbox'],
+input[type='radio'] {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
+}
+
+/* The match marker. */
+::selection {
+  background: var(--editrix-highlight);
+  color: var(--editrix-ink);
+}
+
+.vp-doc mark {
+  background: var(--editrix-highlight);
+  color: var(--editrix-ink);
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+/* Ink on the highlight is 12.68:1. The default active color (brand blue) would be 4.22:1 here and fail. */
+.VPSidebarItem[class*='level-'].is-active > .item .link > .text {
+  flex-grow: 0;
+  background: var(--editrix-highlight);
+  color: var(--editrix-ink) !important;
+  padding: 2px 8px;
+  margin-left: -8px;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.VPDocOutlineItem .outline-link.active,
+.VPDocAsideOutline .outline-link.active {
+  color: var(--vp-c-brand-1);
+}
+
+/* Type */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  letter-spacing: -0.015em;
+}
+
+.vp-doc h1 {
+  font-weight: 700;
+}
+
+.vp-doc h2 {
+  font-weight: 700;
+  margin-top: 56px;
+  padding-top: 28px;
+}
+
+.vp-doc p.lead {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--vp-c-text-2);
+}
+
+.vp-doc a {
+  text-underline-offset: 3px;
+}
+
+/* Badges mark a real edition requirement (Pro), so they stay small and square. */
+.VPBadge {
+  border-radius: 4px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+/* Tables scroll inside their own box instead of widening the page. */
+.vp-doc table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.vp-doc th,
+.vp-doc td {
+  vertical-align: top;
+}
+
+/* Touch targets: 44px minimum on the phone layout. */
+@media (max-width: 959px) {
+  .VPSidebarItem .item {
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .VPSidebarItem .link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .VPLocalNav .menu,
+  .VPLocalNav .outline-link {
+    min-height: 44px;
+  }
+
+  .vp-doc h2 {
+    margin-top: 40px;
+    padding-top: 24px;
+  }
+}
+
+/* The nav has its own version dropdown. The built-in language menu would list the same two trees under a translate icon. */
+.VPNavBarTranslations,
+.VPNavScreenTranslations {
+  display: none !important;
+}
+
+.VPSocialLink {
+  width: 44px;
+  height: 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
