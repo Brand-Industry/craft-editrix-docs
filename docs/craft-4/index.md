@@ -72,6 +72,6 @@ Editrix has two paid editions, Standard (USD 19) and Pro (USD 99). Either one ca
 
 ## Support
 
-Report a problem or ask a question in [GitHub Issues](https://github.com/brand-industry/craft-editrix/issues), or write to [lalonso@tbi.com.mx](mailto:lalonso@tbi.com.mx).
+Report a problem or ask a question in [GitHub Issues](https://github.com/brand-industry/craft-editrix/issues), or write to [editrix-support@thebrandindustry.com](mailto:editrix-support@thebrandindustry.com).
 
 Editrix is released under the Craft License. Each license covers one production site.
