@@ -1,19 +1,14 @@
 <script setup lang="ts">
-import { withBase } from 'vitepress'
+import BrandMark from './BrandMark.vue'
 
-// The default VitePress footer is hidden on pages with a sidebar, so the license line and the
-// Brand Industry mark live here, in the doc-after slot.
-const home = 'https://thebrandindustry.com/es'
+// The default VitePress footer is hidden on pages with a sidebar, so the license line lives here, in the doc-after slot.
+// The Brand Industry mark shows here only when the right column is not there (narrow screens, or a page with no headings).
 </script>
 
 <template>
   <footer class="brand-footer">
     <p class="brand-footer-license">Editrix is released under the Craft License. One license covers one production site.</p>
-    <a class="brand-footer-link" :href="home" target="_blank" rel="noopener">
-      <span class="brand-footer-by">A plugin by</span>
-      <img class="brand-logo-light" :src="withBase('/brand/brand-industry-light.svg')" alt="Brand Industry" width="91" height="28" />
-      <img class="brand-logo-dark" :src="withBase('/brand/brand-industry-dark.svg')" alt="Brand Industry" width="91" height="28" />
-    </a>
+    <BrandMark class="brand-footer-mark" />
   </footer>
 </template>
 
@@ -36,35 +31,10 @@ const home = 'https://thebrandindustry.com/es'
   color: var(--vp-c-text-3);
 }
 
-.brand-footer-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 44px;
-  color: var(--vp-c-text-3);
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.brand-footer-link:hover .brand-footer-by {
-  color: var(--vp-c-text-1);
-}
-
-.brand-footer-link img {
-  display: block;
-  height: 28px;
-  width: auto;
-}
-
-.brand-footer .brand-logo-dark {
-  display: none;
-}
-
-.dark .brand-footer .brand-logo-light {
-  display: none;
-}
-
-.dark .brand-footer .brand-logo-dark {
-  display: block;
+/* The aside shows from 1280px up, and only when the page has an outline. There the mark moves to the right column. */
+@media (min-width: 1280px) {
+  .VPDoc.has-aside .brand-footer-mark {
+    display: none;
+  }
 }
 </style>
