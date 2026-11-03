@@ -2,6 +2,15 @@
 
 All notable changes to Editrix will be documented in this file.
 
+## [2.0.1] - 2026-11-02
+
+### Changed
+- The Standard edition is now called Lite, to match the edition names in the Plugin Store (Lite and Pro). The edition handle changes from `standard` to `lite`. Sites that had `standard` stored move to Lite on their own, with no migration. Features, limits and price are the same
+
+### Fixed
+- The Log Retention setting was never applied: logs were not removed after the number of days set. They are now removed when Craft runs garbage collection (`craft gc`)
+- Moving from Pro to Lite does not delete logs. The edition caps the number you can set (Lite 30, Pro 90), and a site that had 90 days keeps them until it lowers the setting itself
+
 ## [2.0.0] - 2026-10-14
 
 First stable release for Craft 5. It has the same code as 2.0.0-beta.6. Requires Craft CMS 5.0 or later and PHP 8.2 or later.

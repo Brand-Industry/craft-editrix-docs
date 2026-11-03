@@ -27,7 +27,7 @@ const descriptions: Record<string, string> = {
   configuration: 'Every Editrix setting, in the control panel and in config/editrix.php.',
   'large-sites': 'Set up the queue, understand the limits and keep Editrix searches fast on large sites.',
   'command-line': 'Search, replace and revert from the terminal with the Editrix console commands (Pro).',
-  editions: 'What Standard and Pro include in Editrix, with the exact limits and prices.',
+  editions: 'What Lite and Pro include in Editrix, with the exact limits and prices.',
   troubleshooting: 'Messages you may see in Editrix and what they mean.',
   changelog: 'Release notes for Editrix.'
 }

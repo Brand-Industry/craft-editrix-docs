@@ -37,7 +37,7 @@ A search shows what the person running it may open in Craft. An entry in a secti
 
 ## Limiting the search
 
-On Standard, a search covers every section. On Pro you can switch to **Segmented Search** and narrow it to:
+On Lite, a search covers every section. On Pro you can switch to **Segmented Search** and narrow it to:
 
 1. One or more sections
 2. One or more entry types of those sections
@@ -55,7 +55,7 @@ A row shows the entry, its section, the field, and a short context with the matc
 
 <Shot src="/img/results.jpg" alt="Results table with one row per field, its match count and a highlighted preview" caption="One row per field. The badges show the field type and how many matches the field holds." />
 
-A search stops at a limit: 3,000 rows on Standard and 25,000 on Pro. Editrix says so when it stops, and a narrower search shows the rest. You can lower the limit with the `maxSearchResults` setting but not raise it. The limit counts rows, not matches, so a field with many matches counts once.
+A search stops at a limit: 3,000 rows on Lite and 25,000 on Pro. Editrix says so when it stops, and a narrower search shows the rest. You can lower the limit with the `maxSearchResults` setting but not raise it. The limit counts rows, not matches, so a field with many matches counts once.
 
 ## While a search runs
 

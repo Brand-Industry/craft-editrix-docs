@@ -54,7 +54,7 @@ You can also install it from **Settings, Plugins** in the control panel. If `php
 
 ## Editions
 
-Editrix has two paid editions, Standard (USD 19) and Pro (USD 99). Either one can be tried without charge in a development or staging environment, and a license covers one production site. [Editions](editions.md) lists what each one includes, with the exact limits.
+Editrix has two paid editions, Lite (USD 19) and Pro (USD 99). Either one can be tried without charge in a development or staging environment, and a license covers one production site. [Editions](editions.md) lists what each one includes, with the exact limits.
 
 ## Where to go next
 
@@ -67,7 +67,7 @@ Editrix has two paid editions, Standard (USD 19) and Pro (USD 99). Either one ca
 | [Large sites and the queue](large-sites.md) | Queue setup, limits, and how searches stay fast on big sites |
 | [Settings](configuration.md) | Every setting, in the control panel and in `config/editrix.php` |
 | [Command line](command-line.md) | Search, replace and revert from the terminal (Pro) |
-| [Editions](editions.md) | What Standard and Pro include, with the exact limits |
+| [Editions](editions.md) | What Lite and Pro include, with the exact limits |
 | [Troubleshooting](troubleshooting.md) | Messages you may see and what they mean |
 
 ## Support
