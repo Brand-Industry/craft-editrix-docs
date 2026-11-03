@@ -54,7 +54,7 @@ You can also install it from **Settings, Plugins** in the control panel. If `php
 
 ## Editions
 
-Editrix has two paid editions, Lite (USD 19) and Pro (USD 99). Either one can be tried without charge in a development or staging environment, and a license covers one production site. [Editions](editions.md) lists what each one includes, with the exact limits.
+Editrix has two paid editions, Lite (USD 19) and Pro (USD 99), with renewals at USD 9 and USD 39. Either one can be tried without charge in a development or staging environment, and a license covers one production site. [Editions](editions.md) lists what each one includes, with the exact limits.
 
 ## Where to go next
 

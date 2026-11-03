@@ -4,6 +4,9 @@ Editrix has two paid editions. There is no free edition. Either one can be tried
 
 | | Lite (USD 19) | Pro (USD 99) |
 | --- | :---: | :---: |
+| **Price** | | |
+| License, for one production site | USD 19 | USD 99 |
+| Renewal | USD 9 | USD 39 |
 | **Searching** | | |
 | Entries and globals | Yes | Yes |
 | Regular expressions, case insensitive, whole words | Yes | Yes |
