@@ -12,6 +12,22 @@ The search reported nothing for two minutes, which usually means the server kill
 
 The search reached the server's memory limit. It shows the matches found so far. Narrow it to a section or field to cover everything.
 
+## "Search stopped early to protect the server (time limit)"
+
+The search ran for `maxSearchSeconds` (300 seconds by default). It shows the matches found so far. Narrow it to a section or field, or raise the setting if your server can take longer searches.
+
+## A replace never ends
+
+Its worker probably stopped. If Craft's queue no longer holds the replace and nothing has moved for two minutes, Editrix closes it as partial (or failed if nothing was saved). What was saved is in **Logs & History** and can be reverted. A replace that is only waiting for its turn in the queue is not closed.
+
+## "You already have a replace running"
+
+Each user runs one replace at a time. Wait for the running one to finish, or cancel it from its progress bar.
+
+## A revert says "This operation is still running"
+
+A revert in the queue is still working, or its worker stopped. If Craft's queue no longer holds the revert and nothing has moved for two minutes, Editrix treats it as stopped and lets you start it again (a revert that is only waiting its turn in the queue is left alone): the values already restored stay restored, and the rest are still in the log. To stop one that is running, use **Stop revert** in its dialog.
+
 ## "Showing the first N results"
 
 The search reached the limit of your edition (3,000 rows on Lite, 25,000 on Pro) or the `maxSearchResults` you set. Use a more specific phrase, or narrow the scope.
